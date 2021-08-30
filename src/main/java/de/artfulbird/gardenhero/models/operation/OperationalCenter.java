@@ -17,7 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@Table(name = "Op_center")
+@Table(name = "OP_CENTERS")
 public class OperationalCenter extends BaseModel {
 
     @Column
@@ -26,10 +26,10 @@ public class OperationalCenter extends BaseModel {
     @Column
     private String ipAddress;
 
-    @OneToMany(mappedBy = "op_center")
+    @OneToMany(mappedBy = "operationalCenter")
     private List<Pump> pumps = new ArrayList<>();
 
-    @OneToMany(mappedBy = "op_center")
+    @OneToMany(mappedBy = "operationalCenter")
     private List<Sector> sectors = new ArrayList<>();
 
     @Builder

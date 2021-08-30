@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@Table(name = "Fields")
+@Table(name = "ME_FIELDS")
 public class Field extends BaseModel {
 
     @Column
@@ -27,11 +27,11 @@ public class Field extends BaseModel {
     @CreationTimestamp
     private LocalDateTime implemented_at;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "Sector_id", referencedColumnName = "id")
-    private Field field;
+    private Sector sector;
 
     @OneToMany(mappedBy = "field")
-    private List<PropMoisture> list = new ArrayList<>();
+    private List<Moisture> propMoisture = new ArrayList<>();
 
 }

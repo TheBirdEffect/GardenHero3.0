@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@Table(name = "Pump_runtime")
+@Table(name = "OP_PUMP_DATA")
 public class pump_runtime extends BaseModel {
 
     @Builder

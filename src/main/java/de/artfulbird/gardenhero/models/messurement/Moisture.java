@@ -18,8 +18,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@Table(name = "prop_moistures")
-public class PropMoisture extends BaseModel {
+@Table(name = "ME_MOISTURE")
+public class Moisture extends BaseModel {
 
     @Column
     private float value;

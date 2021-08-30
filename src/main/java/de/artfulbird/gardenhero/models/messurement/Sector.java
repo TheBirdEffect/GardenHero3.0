@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-@Table(name = "Sectors")
+@Table(name = "ME_SECTORS")
 public class Sector extends BaseModel {
 
     @Column
