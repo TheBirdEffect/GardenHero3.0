@@ -21,7 +21,7 @@ import java.util.List;
 @Table(name = "ME_SECTORS")
 public class Sector extends BaseModel {
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
     @Column

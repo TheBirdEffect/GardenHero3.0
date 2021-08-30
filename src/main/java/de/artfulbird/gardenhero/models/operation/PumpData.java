@@ -19,10 +19,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Table(name = "OP_PUMP_DATA")
-public class pump_runtime extends BaseModel {
+public class PumpData extends BaseModel {
 
     @Builder
-    public pump_runtime() {}
+    public PumpData() {}
 
     @Column
     @CreationTimestamp

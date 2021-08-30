@@ -31,11 +31,6 @@ public class Pump extends BaseModel {
     private OperationalCenter operationalCenter;
 
     @OneToMany(mappedBy = "pump")
-    private List<pump_runtime> pump_runtimes = new ArrayList<>();
+    private List<PumpData> pump_runtimes = new ArrayList<>();
 
-    @Builder
-    public Pump (boolean isRunning, String name) {
-        this.isRunning = isRunning;
-        this.name = name;
-    }
 }
