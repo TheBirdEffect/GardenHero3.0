@@ -20,7 +20,7 @@ import java.util.List;
 @Table(name = "OP_CENTERS")
 public class OperationalCenter extends BaseModel {
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
     @Column
@@ -32,10 +32,8 @@ public class OperationalCenter extends BaseModel {
     @OneToMany(mappedBy = "operationalCenter")
     private List<Sector> sectors = new ArrayList<>();
 
-    @Builder
-    public OperationalCenter(String name, String ipAddress) {
-        this.name = name;
-        this.ipAddress = ipAddress;
-    }
+    @OneToMany(mappedBy = "operationalCenter")
+    private List<Program> programs = new ArrayList<>();
+
 
 }
