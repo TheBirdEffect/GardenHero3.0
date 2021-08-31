@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Table(name = "OP_PUMPS")
 public class Pump extends BaseModel {
@@ -26,11 +27,11 @@ public class Pump extends BaseModel {
     @Column
     private String name;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name =  "op_center_id", referencedColumnName = "id")
     private OperationalCenter operationalCenter;
 
     @OneToMany(mappedBy = "pump")
-    private List<PumpData> pump_runtimes = new ArrayList<>();
+    private List<PumpData> opPumpData = new ArrayList<>();
 
 }

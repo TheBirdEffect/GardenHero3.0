@@ -3,10 +3,8 @@ package de.artfulbird.gardenhero.models.operation;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import de.artfulbird.gardenhero.models.BaseModel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import de.artfulbird.gardenhero.models.measurement.Field;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -14,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
@@ -22,6 +21,9 @@ public class Program extends BaseModel {
 
     @Column(nullable = false)
     private String name;
+
+    @Column
+    private String type;
 
     @Column(nullable = false)
     private float moistureThresholdLow;
