@@ -3,7 +3,7 @@ package de.artfulbird.gardenhero.models.operation;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import de.artfulbird.gardenhero.models.BaseModel;
-import de.artfulbird.gardenhero.models.messurement.Sector;
+import de.artfulbird.gardenhero.models.measurement.Sector;
 import lombok.*;
 
 import javax.persistence.*;

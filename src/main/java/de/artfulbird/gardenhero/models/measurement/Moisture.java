@@ -1,4 +1,4 @@
-package de.artfulbird.gardenhero.models.messurement;
+package de.artfulbird.gardenhero.models.measurement;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;

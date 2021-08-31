@@ -1,8 +1,9 @@
-package de.artfulbird.gardenhero.models.messurement;
+package de.artfulbird.gardenhero.models.measurement;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import de.artfulbird.gardenhero.models.BaseModel;
+import de.artfulbird.gardenhero.models.operation.Program;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -33,5 +34,9 @@ public class Field extends BaseModel {
 
     @OneToMany(mappedBy = "field")
     private List<Moisture> propMoisture = new ArrayList<>();
+
+    @OneToOne(cascade = CascadeType.PERSIST, optional = false)
+    @JoinColumn(name = "programm_id", referencedColumnName = "id")
+    private Program program;
 
 }
