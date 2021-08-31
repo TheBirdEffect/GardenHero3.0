@@ -27,11 +27,11 @@ public class Pump extends BaseModel {
     @Column
     private String name;
 
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name =  "op_center_id", referencedColumnName = "id")
     private OperationalCenter operationalCenter;
 
-    @OneToMany(mappedBy = "pump")
+    @OneToMany(mappedBy = "pump", cascade = CascadeType.PERSIST)
     private List<PumpData> opPumpData = new ArrayList<>();
 
 }
