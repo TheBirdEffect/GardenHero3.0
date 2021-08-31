@@ -15,6 +15,7 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
+@Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
@@ -31,11 +32,11 @@ public class Sector extends BaseModel {
     @Column
     private String ipAddress;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "op_center_id", referencedColumnName = "id")
     private OperationalCenter operationalCenter;
 
-    @OneToMany(mappedBy = "sector")
+    @OneToMany(mappedBy = "sector", cascade = CascadeType.PERSIST)
     private List<Field> fields = new ArrayList<>();
 
 }
