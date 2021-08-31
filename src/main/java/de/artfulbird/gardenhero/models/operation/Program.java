@@ -44,9 +44,8 @@ public class Program extends BaseModel {
     @ColumnDefault(value = "false")
     private boolean isEnabled;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "op_center_id", referencedColumnName = "id")
     private OperationalCenter operationalCenter;
-
 
 }

@@ -20,19 +20,19 @@ import java.util.List;
 @Table(name = "OP_CENTERS")
 public class OperationalCenter extends BaseModel {
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
-    @Column
+    @Column(unique = true)
     private String ipAddress;
 
     @OneToMany(mappedBy = "operationalCenter", cascade = CascadeType.MERGE)
     private List<Pump> pumps = new ArrayList<>();
 
-    @OneToMany(mappedBy = "operationalCenter")
+    @OneToMany(mappedBy = "operationalCenter", cascade = CascadeType.PERSIST)
     private List<Sector> sectors = new ArrayList<>();
 
-    @OneToMany(mappedBy = "operationalCenter")
+    @OneToMany(mappedBy = "operationalCenter", cascade = CascadeType.PERSIST)
     private List<Program> programs = new ArrayList<>();
 
 
