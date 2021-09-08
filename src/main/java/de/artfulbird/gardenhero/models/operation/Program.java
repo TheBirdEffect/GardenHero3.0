@@ -8,6 +8,7 @@ import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -47,5 +48,8 @@ public class Program extends BaseModel {
     @ManyToOne
     @JoinColumn(name = "op_center_id", referencedColumnName = "id")
     private OperationalCenter operationalCenter;
+
+    @OneToMany(mappedBy = "program",cascade = CascadeType.PERSIST)
+    private List<Field> fields;
 
 }

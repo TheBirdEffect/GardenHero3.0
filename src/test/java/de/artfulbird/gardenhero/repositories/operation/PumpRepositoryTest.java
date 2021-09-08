@@ -27,6 +27,7 @@ class PumpRepositoryTest {
     @BeforeEach
     void setUp() {
         pumpRepository.deleteAll();
+        operationalCenterRepository.deleteAll();
     }
 
     @AfterEach
@@ -46,14 +47,9 @@ class PumpRepositoryTest {
         PumpData pumpData = PumpData.builder()
                 .build();
 
-        List<PumpData> givenPumpDataList = new ArrayList<>();
-        givenPumpDataList.add(pumpData);
-
-
         Pump givenPump = Pump.builder()
                 .name("Toshiba ER-1")
                 .operationalCenter(savedCenter)
-                .opPumpData(givenPumpDataList)
                 .build();
         //When
         Pump saved = pumpRepository.save(givenPump);
@@ -74,15 +70,10 @@ class PumpRepositoryTest {
         PumpData pumpData = PumpData.builder()
                 .build();
 
-        List<PumpData> givenPumpDataList = new ArrayList<>();
-        givenPumpDataList.add(pumpData);
-
-
         Pump givenPump = Pump.builder()
                 .name("Toshiba ER-1")
                 .isRunning(true)
                 .operationalCenter(savedCenter)
-                .opPumpData(givenPumpDataList)
                 .build();
         Pump saved = pumpRepository.save(givenPump);
 
@@ -108,15 +99,10 @@ class PumpRepositoryTest {
         PumpData pumpData = PumpData.builder()
                 .build();
 
-        List<PumpData> givenPumpDataList = new ArrayList<>();
-        givenPumpDataList.add(pumpData);
-
-
         Pump givenPump = Pump.builder()
                 .name("Toshiba ER-1")
                 .isRunning(true)
                 .operationalCenter(savedCenter)
-                .opPumpData(givenPumpDataList)
                 .build();
         Pump saved = pumpRepository.save(givenPump);
 

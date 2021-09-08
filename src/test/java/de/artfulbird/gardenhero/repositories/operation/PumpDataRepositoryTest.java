@@ -32,6 +32,8 @@ class PumpDataRepositoryTest {
     @BeforeEach
     void setUp() {
         pumpDataRepository.deleteAll();
+        pumpRepository.deleteAll();
+        operationalCenterRepository.deleteAll();
     }
 
     @AfterEach
@@ -109,7 +111,7 @@ class PumpDataRepositoryTest {
     }
 
     @Test
-    void shouldDeleteumpData() {
+    void shouldDeletePumpData() {
         LocalDateTime givenBegin = LocalDateTime.now();
         LocalDateTime givenEnd = givenBegin.plusSeconds(5);
 
