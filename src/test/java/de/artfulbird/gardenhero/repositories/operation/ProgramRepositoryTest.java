@@ -15,9 +15,13 @@ class ProgramRepositoryTest {
     @Autowired
     ProgramRepository programRepository;
 
+    @Autowired
+    OperationalCenterRepository operationalCenterRepository;
+
     @BeforeEach
     void beforeAll() {
         programRepository.deleteAll();
+        operationalCenterRepository.deleteAll();
     }
 
     @AfterEach
@@ -32,6 +36,7 @@ class ProgramRepositoryTest {
                 .name("Base0")
                 .ipAddress("192.168.1.17")
                 .build();
+        operationalCenterRepository.save(givenCenter);
 
         Program givenProgram = Program.builder()
                 .name("Dry")
@@ -59,6 +64,7 @@ class ProgramRepositoryTest {
                 .name("Base0")
                 .ipAddress("192.168.1.17")
                 .build();
+        operationalCenterRepository.save(givenCenter);
 
         Program givenProgram = Program.builder()
                 .name("Dry")
@@ -89,6 +95,7 @@ class ProgramRepositoryTest {
                 .name("Base0")
                 .ipAddress("192.168.1.17")
                 .build();
+        operationalCenterRepository.save(givenCenter);
 
         Program givenProgram = Program.builder()
                 .name("Dry")
@@ -117,6 +124,7 @@ class ProgramRepositoryTest {
                 .name("Base0")
                 .ipAddress("192.168.1.17")
                 .build();
+        operationalCenterRepository.save(givenCenter);
 
         Program givenProgram = Program.builder()
                 .name("Dry")
@@ -144,6 +152,7 @@ class ProgramRepositoryTest {
                 .name("Base0")
                 .ipAddress("192.168.1.17")
                 .build();
+        operationalCenterRepository.save(givenCenter);
 
         Program givenProgram = Program.builder()
                 .name("Dry")
@@ -171,6 +180,7 @@ class ProgramRepositoryTest {
                 .name("Base0")
                 .ipAddress("192.168.1.17")
                 .build();
+        operationalCenterRepository.save(givenCenter);
 
         Program givenProgram = Program.builder()
                 .name("Dry")
@@ -198,6 +208,7 @@ class ProgramRepositoryTest {
                 .name("Base0")
                 .ipAddress("192.168.1.17")
                 .build();
+        operationalCenterRepository.save(givenCenter);
 
         Program givenProgram = Program.builder()
                 .name("Dry")

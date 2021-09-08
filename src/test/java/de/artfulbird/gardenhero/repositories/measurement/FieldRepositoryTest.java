@@ -35,6 +35,7 @@ class FieldRepositoryTest {
         fieldRepository.deleteAll();
         sectorRepository.deleteAll();
         programRepository.deleteAll();
+        operationalCenterRepository.deleteAll();
     }
 
     @AfterEach
@@ -53,6 +54,19 @@ class FieldRepositoryTest {
                 .build();
         operationalCenterRepository.save(givenCenter);
 
+        Program givenProgram = Program.builder()
+                .name("Dry")
+                .type("Type0")
+                .moistureThresholdLow(50)
+                .moistureThresholdHigh(70)
+                .wateringDurationPerIntervalInSeconds(3)
+                .wateringBreakPerIntervalInSeconds(10)
+                .wateringFrequencyPerIntervalInSeconds(5)
+                .isEnabled(true)
+                .operationalCenter(givenCenter)
+                .build();
+        programRepository.save(givenProgram);
+
         Sector givenSector = Sector.builder()
                 .name("Sector1")
                 .ipAddress("192.168.1.18")
@@ -63,6 +77,7 @@ class FieldRepositoryTest {
         Field givenField = Field.builder()
                 .name("Field1")
                 .sector(givenSector)
+                .program(givenProgram)
                 .build();
         //When
         Field saved = fieldRepository.save(givenField);
@@ -80,6 +95,19 @@ class FieldRepositoryTest {
                 .build();
         operationalCenterRepository.save(givenCenter);
 
+        Program givenProgram = Program.builder()
+                .name("Dry")
+                .type("Type0")
+                .moistureThresholdLow(50)
+                .moistureThresholdHigh(70)
+                .wateringDurationPerIntervalInSeconds(3)
+                .wateringBreakPerIntervalInSeconds(10)
+                .wateringFrequencyPerIntervalInSeconds(5)
+                .isEnabled(true)
+                .operationalCenter(givenCenter)
+                .build();
+        programRepository.save(givenProgram);
+
         Sector givenSector = Sector.builder()
                 .name("Sector1")
                 .ipAddress("192.168.1.18")
@@ -90,6 +118,7 @@ class FieldRepositoryTest {
         Field givenField = Field.builder()
                 .name("Field1")
                 .sector(givenSector)
+                .program(givenProgram)
                 .build();
         Field saved = fieldRepository.save(givenField);
 

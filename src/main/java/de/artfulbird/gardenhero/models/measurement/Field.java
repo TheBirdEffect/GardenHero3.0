@@ -36,7 +36,7 @@ public class Field extends BaseModel {
     @OneToMany(mappedBy = "field", cascade = CascadeType.PERSIST)
     private List<Moisture> propMoisture = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne
     @JoinColumn(name = "programm_id", referencedColumnName = "id")
     private Program program;
 

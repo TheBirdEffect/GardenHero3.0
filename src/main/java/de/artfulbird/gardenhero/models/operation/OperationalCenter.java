@@ -26,7 +26,7 @@ public class OperationalCenter extends BaseModel {
     @Column(unique = true)
     private String ipAddress;
 
-    @OneToMany(mappedBy = "operationalCenter", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "operationalCenter", cascade = CascadeType.PERSIST)
     private List<Pump> pumps = new ArrayList<>();
 
     @OneToMany(mappedBy = "operationalCenter", cascade = CascadeType.PERSIST)
