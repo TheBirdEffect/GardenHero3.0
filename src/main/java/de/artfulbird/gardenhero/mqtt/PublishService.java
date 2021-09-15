@@ -6,6 +6,7 @@ import de.artfulbird.gardenhero.mqtt.Exceptions.PublisherNotExistsException;
 import lombok.Getter;
 import lombok.Setter;
 import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -24,7 +25,8 @@ public class PublishService {
 
     IMqttClient initializing() {
         try {
-            IMqttClient publisher = new MqttClient(broker, publisherId);
+            MemoryPersistence persistence = new MemoryPersistence();
+            IMqttClient publisher = new MqttClient(broker, publisherId, persistence);
             MqttConnectOptions options = new MqttConnectOptions();
             options.setAutomaticReconnect(true);
             options.setCleanSession(true);
