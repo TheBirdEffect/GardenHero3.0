@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@Service("SubscriberService")
+@Component
 public class SubscribeService {
     private int qos = 2;
     private String broker = "tcp://localhost:1883";
@@ -26,13 +27,14 @@ public class SubscribeService {
         subscriber = new MqttAsyncClient(broker, publisherId, persistence);
         MqttConnectOptions options = new MqttConnectOptions();
         options.setAutomaticReconnect(true);
-        options.setConnectionTimeout(10);
+        options.setConnectionTimeout(100);
         options.setCleanSession(true);
 
         CallbackDetails callBack = new CallbackDetails();
         subscriber.setCallback(callBack);
 
-        IMqttToken token = subscriber.connect(options);
+
+        IMqttToken token = subscriber.connect();
         token.waitForCompletion();
 
         //subscriber.subscribe(topic, qos);

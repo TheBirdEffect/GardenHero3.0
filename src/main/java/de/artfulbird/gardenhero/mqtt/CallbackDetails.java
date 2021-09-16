@@ -38,7 +38,7 @@ public class CallbackDetails implements MqttCallback {
         ObjectMapper objectMapper = new ObjectMapper();
         if(topic.startsWith("sectors/fields/moisture")){
             System.out.println(mqttMessage);
-            Moisture moisture = objectMapper.readValue((DataInput) mqttMessage, Moisture.class);
+/*            Moisture moisture = objectMapper.readValue((DataInput) mqttMessage, Moisture.class);
             System.out.println("Moisture" + moisture);
             Optional<Field> field = fieldRepository.findById(moisture.getField().getId());
             System.out.println("Valid topic hit; Topic: " + topic);
@@ -46,7 +46,7 @@ public class CallbackDetails implements MqttCallback {
                 moisture.setField(field.get());
                 moistureRepository.save(moisture);
                 System.out.println("Data stored!");
-            }
+            }*/
         } else if(topic.startsWith("/pumps/pumpData")){
             PumpData pumpData = objectMapper.readValue((DataInput)mqttMessage, PumpData.class);
         }
