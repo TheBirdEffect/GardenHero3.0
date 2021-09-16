@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,13 +26,13 @@ public class SubscribeService {
         subscriber = new MqttAsyncClient(broker, publisherId, persistence);
         MqttConnectOptions options = new MqttConnectOptions();
         options.setAutomaticReconnect(true);
-        options.setCleanSession(true);
         options.setConnectionTimeout(10);
+        options.setCleanSession(true);
 
         CallbackDetails callBack = new CallbackDetails();
         subscriber.setCallback(callBack);
 
-        IMqttToken token = subscriber.connect();
+        IMqttToken token = subscriber.connect(options);
         token.waitForCompletion();
 
         //subscriber.subscribe(topic, qos);
@@ -41,8 +42,11 @@ public class SubscribeService {
 
 
 
+
         if(subscriber.isConnected()){
             System.out.println("Subscriber " + publisherId + " connected!" );
+        } else if (!subscriber.isConnected()){
+            System.out.println("Subscriber " + publisherId + " disconnected!");
         }
     }
 

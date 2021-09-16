@@ -84,6 +84,15 @@
             <version>1.2.0</version>
         </dependency>
 
+        <!--MQTT-Message-formatting-->
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>2.12.4</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

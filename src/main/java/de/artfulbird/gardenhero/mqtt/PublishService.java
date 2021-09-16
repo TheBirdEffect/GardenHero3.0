@@ -2,11 +2,13 @@ package de.artfulbird.gardenhero.mqtt;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import de.artfulbird.gardenhero.mqtt.Exceptions.PublisherNotExistsException;
 import lombok.Getter;
 import lombok.Setter;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -73,7 +75,9 @@ public class PublishService {
         IMqttClient publisher = initializing();
         if(publisher != null)
         {
-            ObjectMapper mapper = new ObjectMapper();
+            ObjectMapper mapper = JsonMapper.builder()
+                    .findAndAddModules()
+                    .build();
             try {
                 String convertedMessage = mapper.writeValueAsString(message);
 
