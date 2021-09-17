@@ -25,7 +25,7 @@ public class PublishService {
 
 
 
-    IMqttClient initializing() {
+    public IMqttClient initializing() {
         try {
             MemoryPersistence persistence = new MemoryPersistence();
             IMqttClient publisher = new MqttClient(broker, publisherId, persistence);
@@ -45,7 +45,7 @@ public class PublishService {
         return null;
     }
 
-    void publishMessage(String message, String topic) throws PublisherNotExistsException {
+    public void publishMessage(String message, String topic) throws PublisherNotExistsException {
         IMqttClient publisher = initializing();
         if(publisher != null)
         {

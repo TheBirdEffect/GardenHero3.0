@@ -95,4 +95,18 @@ class PublishServiceTest {
         //When
         publishService.publishObject(moisture, "sectors/fields/moisture/");
     }
+
+    @Test
+    void shouldPublishTest() throws PublisherNotExistsException, ParseException {
+        //Given
+        de.artfulbird.gardenhero.models.measurement.Test test = de.artfulbird.gardenhero.models.measurement.Test.builder()
+                .name("User")
+                .age(4)
+                .build();
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        //When
+        publishService.publishObject(test, "sectors/fields/moisture/");
+    }
 }
